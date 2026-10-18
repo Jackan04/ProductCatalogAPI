@@ -41,7 +41,10 @@ namespace ProductCatalogAPI.Controllers
         {
             var newProduct = await _service.CreateAsync(dto);
 
-            return Ok(newProduct);
+            return CreatedAtAction(
+                nameof(GetById),
+                new { id = newProduct.ID },
+                newProduct);
         }
 
         [HttpPut("{id}")]
@@ -49,8 +52,8 @@ namespace ProductCatalogAPI.Controllers
         {
             var success = await _service.UpdateAsync(id, dto);
 
-            if(!success) return NotFound($"Product not found ({id})");
-            
+            if (!success) return NotFound($"Product not found ({id})");
+
             return NoContent();
         }
 
@@ -60,7 +63,7 @@ namespace ProductCatalogAPI.Controllers
         {
             var success = await _service.DeleteAsync(id);
 
-            if(!success) return NotFound($"Product not found ({id})");
+            if (!success) return NotFound($"Product not found ({id})");
 
             return NoContent();
         }

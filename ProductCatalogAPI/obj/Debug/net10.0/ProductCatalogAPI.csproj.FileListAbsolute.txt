@@ -31,3 +31,4 @@
 /home/jacob/Dokument/Utveckling/ProductCatalogAPI/ProductCatalogAPI/obj/Debug/net10.0/ProductCatalogAPI.pdb
 /home/jacob/Dokument/Utveckling/ProductCatalogAPI/ProductCatalogAPI/obj/Debug/net10.0/ProductCatalogAPI.genruntimeconfig.cache
 /home/jacob/Dokument/Utveckling/ProductCatalogAPI/ProductCatalogAPI/obj/Debug/net10.0/ref/ProductCatalogAPI.dll
+/home/jacob/Dokument/Utveckling/ProductCatalogAPI/ProductCatalogAPI/obj/Debug/net10.0/ProductCatalogAPI.sourcelink.json

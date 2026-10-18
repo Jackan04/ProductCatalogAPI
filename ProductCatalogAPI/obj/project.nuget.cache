@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Z2MvczY1V1Q=",
+  "success": true,
+  "projectFilePath": "/home/jacob/Dokument/Utveckling/ProductCatalogAPI/ProductCatalogAPI/ProductCatalogAPI.csproj",
+  "expectedPackageFiles": [
+    "/home/jacob/.nuget/packages/microsoft.aspnetcore.openapi/10.0.12/microsoft.aspnetcore.openapi.10.0.12.nupkg.sha512",
+    "/home/jacob/.nuget/packages/microsoft.openapi/2.12.0/microsoft.openapi.2.12.0.nupkg.sha512"
+  ],
+  "logs": []
+}

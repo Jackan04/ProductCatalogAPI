@@ -6,3 +6,6 @@
 
 # Visual Studio user-specific files
 .vs/
+
+/ProductCatalogAPI.Tests/obj/
+/ProductCatalogAPI.Tests/bin/

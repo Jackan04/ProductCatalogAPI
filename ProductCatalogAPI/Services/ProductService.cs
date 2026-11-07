@@ -32,7 +32,7 @@ public class ProductService : IProductService
     {
         var product = await _context.Products.FirstOrDefaultAsync(p => p.ID == id);
 
-        if(product is null) return null;
+        if (product is null) return null;
 
         return new ProductResponseDto(product.ID, product.Name, product.Category, product.Price, product.Stock);
     }
@@ -47,7 +47,7 @@ public class ProductService : IProductService
 
     public async Task<bool> DeleteAsync(Guid id)
     {
-        var product = _context.FirstOrDefaultAsync(p => p.ID == id);
+        var product = await _context.Products.FirstOrDefaultAsync(p => p.ID == id);
 
         return product is not null && _context.Remove(product);
     }

@@ -32,10 +32,9 @@ public class ProductService : IProductService
     {
         var product = await _context.Products.FirstOrDefaultAsync(p => p.ID == id);
 
-        return product is null
-            ? null
-            : new ProductResponseDto(product.ID ,product.Name, product.Category, product.Price, product.Stock);
+        if(product is null) return null;
 
+        return new ProductResponseDto(product.ID, product.Name, product.Category, product.Price, product.Stock);
     }
     public async Task<ProductResponseDto> CreateAsync(CreateProductDto dto)
     {

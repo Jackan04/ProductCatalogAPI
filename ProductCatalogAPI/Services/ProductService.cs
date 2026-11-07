@@ -16,16 +16,16 @@ public class ProductService : IProductService
 
     public async Task<IEnumerable<ProductResponseDto>> GetAllAsync(string? category)
     {
-        var mapped = await _context.Products
-                                    .Select(p => new ProductResponseDto(p.ID, p.Name, p.Category, p.Price, p.Stock))
-                                    .ToListAsync();
+        var query = _context.Products.AsQueryable();
         
         if (!string.IsNullOrEmpty(category))
         {
-            return mapped.Where(p => p.Category == category);
+            query = query.Where(p => p.Category == category);
         }
 
-        return mapped ?? Enumerable.Empty<ProductResponseDto>();
+        var items = await query.ToListAsync();
+
+        return items.Select(p => new ProductResponseDto(p.ID, p.Name, p.Category, p.Price, p.Stock));
     }
 
     public async Task<ProductResponseDto?> GetByIdAsync(Guid id)

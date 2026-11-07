@@ -30,7 +30,7 @@ public class ProductService : IProductService
 
     public async Task<ProductResponseDto?> GetByIdAsync(Guid id)
     {
-        var product = _context.FirstOrDefault(p => p.ID == id);
+        var product = await _context.Products.FirstOrDefaultAsync(p => p.ID == id);
 
         return product is null
             ? null

@@ -59,7 +59,7 @@ namespace ProductCatalogAPI.Controllers
 
         [HttpDelete("{id}")]
 
-        public async Task<ActionResult<bool>> Delete(Guid id)
+        public async Task<ActionResult> Delete(Guid id)
         {
             var success = await _service.DeleteAsync(id);
 

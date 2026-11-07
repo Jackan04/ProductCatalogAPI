@@ -48,7 +48,7 @@ namespace ProductCatalogAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<bool>> Update(Guid id, [FromBody] UpdateProductDto dto)
+        public async Task<ActionResult> Update(Guid id, [FromBody] UpdateProductDto dto)
         {
             var success = await _service.UpdateAsync(id, dto);
 

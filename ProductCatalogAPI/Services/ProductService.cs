@@ -59,19 +59,12 @@ public class ProductService : IProductService
 
     public async Task<bool> UpdateAsync(Guid id, UpdateProductDto dto)
     {
-        var existingProduct = _context.FirstOrDefault(p => p.ID == id);
+        var product = _context.Products.FirstOrDefaultAsync(p => p.ID == id);
 
-        if (existingProduct is null) return false;
+        if (product is null) return false;
 
-        var index = _context.IndexOf(existingProduct);
-
-        _context[index] = existingProduct with
-        {
-            Name = dto.Name,
-            Category = dto.Category,
-            Price = dto.Price,
-            Stock = dto.Stock
-        };
+        _context.Entry(product).CurrentValues.SetValues(dto);
+        await _context.SaveChangesAsync();
 
         return true;
     }

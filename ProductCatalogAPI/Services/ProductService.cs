@@ -20,7 +20,7 @@ public class ProductService : IProductService
                                     .Select(p => new ProductResponseDto(p.ID, p.Name, p.Category, p.Price, p.Stock))
                                     .ToListAsync();
         
-        if (category is not null)
+        if (!string.IsNullOrEmpty(category))
         {
             return mapped.Where(p => p.Category == category);
         }

@@ -40,13 +40,14 @@ public class ProductService : IProductService
     {
         var product = new Product(dto.Name, dto.Category, dto.Price, dto.Stock);
         _context.Add(product);
+        await _context.SaveChangesAsync();
 
         return new ProductResponseDto(product.ID, product.Name, product.Category, product.Price, product.Stock);
     }
 
     public async Task<bool> DeleteAsync(Guid id)
     {
-        var product = _context.FirstOrDefault(p => p.ID == id);
+        var product = _context.FirstOrDefaultAsync(p => p.ID == id);
 
         return product is not null && _context.Remove(product);
     }

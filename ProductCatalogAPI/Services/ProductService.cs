@@ -17,7 +17,7 @@ public class ProductService : IProductService
     public async Task<IEnumerable<ProductResponseDto>> GetAllAsync(string? category)
     {
         var query = _context.Products.AsQueryable();
-        
+
         if (!string.IsNullOrEmpty(category))
         {
             query = query.Where(p => p.Category == category);
@@ -49,14 +49,19 @@ public class ProductService : IProductService
     {
         var product = await _context.Products.FirstOrDefaultAsync(p => p.ID == id);
 
-        return product is not null && _context.Remove(product);
+        if (product is null) return false;
+
+        _context.Products.Remove(product);
+        await _context.SaveChangesAsync();
+        
+        return true;
     }
 
     public async Task<bool> UpdateAsync(Guid id, UpdateProductDto dto)
     {
         var existingProduct = _context.FirstOrDefault(p => p.ID == id);
-      
-        if(existingProduct is null) return false; 
+
+        if (existingProduct is null) return false;
 
         var index = _context.IndexOf(existingProduct);
 

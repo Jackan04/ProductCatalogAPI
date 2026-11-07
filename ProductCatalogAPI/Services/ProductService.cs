@@ -6,11 +6,11 @@ namespace ProductCatalogAPI.Services;
 
 public class ProductService : IProductService
 {
-    private readonly List<Product> _products;
+    private readonly ApplicationDbContext _context;
 
-    public ProductService(SampleData sampleData)
+    public ProductService(ApplicationDbContext context)
     {
-        _products = sampleData.products;
+        _context = context;
     }
 
     public async Task<IEnumerable<ProductResponseDto>> GetAllAsync(string? category)

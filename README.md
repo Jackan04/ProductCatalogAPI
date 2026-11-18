@@ -2,6 +2,8 @@
 
 A small REST API for managing products. I built this project to practice building a backend with ASP.NET Core, Entity Framework Core, and PostgreSQL.
 
+**NOTE**: integration aren't implemented yet.
+
 ## What it can do
 
 - List all products
@@ -78,10 +80,4 @@ Example product for a `POST` request:
   "price": 999.00,
   "stock": 10
 }
-```
-
-## Run tests
-
-```bash
-dotnet test
 ```

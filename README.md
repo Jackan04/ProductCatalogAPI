@@ -2,7 +2,11 @@
 
 A small REST API for managing products. I built this project to practice building a backend with ASP.NET Core, Entity Framework Core, and PostgreSQL.
 
-**NOTE**: integration aren't implemented yet.
+## Backlog
+* Integration tests
+* Global error handler
+* Authentication 
+
 
 ## What it can do
 

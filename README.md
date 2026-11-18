@@ -4,7 +4,6 @@ A small REST API for managing products. I built this project to practice buildin
 
 ## Backlog
 * Integration tests
-* Global error handler
 * Authentication 
 
 

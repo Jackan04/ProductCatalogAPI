@@ -2,6 +2,10 @@
 
 A small REST API for managing products. I built this project to practice building a backend with ASP.NET Core, Entity Framework Core, and PostgreSQL.
 
+The project initially used local sample data in the form of a in-memory list. This was a useful starting point for practising basic HTTP requests and responses, routing, and CRUD operations in ASP.NET Core.
+
+I later expanded the project by replacing the in-memory storage with a real PostgreSQL database. This meant refactoring the existing codebase to introduce Entity Framework Core for data access, update the product service to use the database context, and add migrations for creating and managing the database schema.
+
 ## Backlog
 * Integration tests
 * Authentication 
